@@ -1,0 +1,19 @@
+{% extends 'aquarium_care/base.html' %}
+{% load static %}
+{% block content %}
+<div class="header">
+    <a href=" {% url 'index' %} ">
+        <img src=" {% static 'aquarium_care/img/logo.png' %} " alt="">
+    </a>
+</div>
+<div class="robot">
+    <img src=" {% static 'aquarium_care\img\robot.png' %}" alt="">
+    <div class="inf">
+        <p>123232323</p>
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, vero!</p>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam obcaecati earum animi nostrum debitis dignissimos porro cum itaque pariatur atque voluptate omnis reiciendis ipsum, laborum fugit quidem nobis amet cumque.</p>
+        <a href="{{ request.META.HTTP_REFERER }}">Мій акаунт</a>
+        {% comment %} <a href=" {% url 'interaction' aquarium_id=idg %} ">Мій аккаунт</a> {% endcomment %}
+    </div>
+</div>
+{% endblock content %}

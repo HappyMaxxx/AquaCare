@@ -1,0 +1,47 @@
+{% extends 'aquarium_care/base.html' %}
+{% load static %}
+{% block content %}
+<div class="header">
+    
+    <a href="{% url 'index' %}">
+        <img src=" {% static 'aquarium_care/img/logo.png' %} " alt="">
+    </a>
+</div>
+<div class="body">
+    <div style="height: 1800px;" class="main">
+        <div style="height: 1750px;" class="content">
+            <div class="creation">Акваріум № {{aquarium.id}}</div>
+            <div class="notification"></div>
+            <div class="fishs2">
+                <div class="card">
+                    <div class="view">
+                        <img src="{% static 'aquarium_care/img/fugue.png' %} " alt="">
+                    </div>
+                    <p>{{fugues}}</p>
+                </div>
+                <div class="card">
+                    <div class="view">
+                        <img src="{% static 'aquarium_care/img/rainbow.png' %}" alt="">
+                    </div>
+                    <p>{{fishes}}</p>
+                </div>
+
+            </div>
+            <div class="fishs2">
+                <div class="card">
+                    <div class="view">
+                        <img src="{% static 'aquarium_care/img/shrimp.png' %}" alt="">
+                    </div>
+                    <p>{{shrimps}}</p>
+                </div>
+                <div class="card">
+                    <div class="view">
+                        <img src="{% static 'aquarium_care/img/snail.png' %}" alt="">
+                    </div>
+                    <p>{{snails}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

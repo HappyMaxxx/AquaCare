@@ -1,0 +1,35 @@
+{% extends 'aquarium_care/base.html' %}
+{% load static %}
+{% block content %}
+<div class="header">
+    <a href=" {% url 'index' %} ">
+        <img src=" {% static 'aquarium_care/img/logo.png' %} " alt="">
+    </a>
+</div>
+<div class="wrapper ">
+    <div class="regsiter">
+        <div class="center">
+            <h1 style="display: block;"> Авторизація</h1>
+            <form method="post">
+                {% for field in form %}
+                    <div class="txt_field">
+                        {{ field }}
+                        {{ field.label_tag }}
+                        <span></span>
+                    </div>
+                {% endfor %}
+                {% if form.errors %}
+                {% for field, error_list in form.errors.items %}
+                        {% for error in error_list %}
+                            <p class='error'>{{ error|escape }}</p>
+                        {% endfor %}
+                {% endfor %}
+                {% endif %}
+                {% csrf_token %}
+            <button class="button" type="submit" value="Увійти">Увійти</button>
+            <div class="signup_link">Немає аккаунта? <a href=" {% url 'reg' %} ">Зареєструватися</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}

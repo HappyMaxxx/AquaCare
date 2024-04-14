@@ -1,0 +1,53 @@
+{% extends 'aquarium_care/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="header">
+    <a href=" {% url 'index' %} ">
+        <img src=" {% static 'aquarium_care/img/logo.png' %} " alt="">
+    </a>
+</div>
+<div class="body">
+    <div class="main">
+        <form method="post" action=" {% url 'create_aquarium' %}">
+            <div class="content">
+                <div class="creation">
+                    Створити акваріум
+                </div>
+
+                <div class="pincode">
+                    <input class="pin" placeholder="Пінкод" type="text" maxlength="4" name="pincode" required minlength="4">
+                </div>
+                <div class="fishes">
+                    <div class="card">
+                        <div class="view">
+                            <img src=" {% static 'aquarium_care/img/fugue.png' %} " alt="">
+                        </div>
+                        <input type="text" maxlength="1" name="fugue">
+                    </div>
+                    <div class="card">
+                        <div class="view">
+                            <img src=" {% static 'aquarium_care/img/rainbow.png' %} " alt="">
+                        </div>
+                        <input type="text" maxlength="1" name="fish">
+                    </div>
+                    <div class="card">
+                        <div class="view">
+                            <img src=" {% static 'aquarium_care/img/shrimp.png' %} " alt="">
+                        </div>
+                        <input type="text" maxlength="1" name="shrimp">
+                    </div>
+                    <div class="card">
+                        <div class="view">
+                            <img src=" {% static 'aquarium_care/img/snail.png' %} " alt="">
+                        </div>
+                        <input type="text" maxlength="1" name="snail">
+                    </div>
+                </div>
+                <button class="createAqurium" type="submit">Створити</button>
+            </div>
+        </div>
+        {% csrf_token %}
+    </form>
+</div>
+{% endblock content %}

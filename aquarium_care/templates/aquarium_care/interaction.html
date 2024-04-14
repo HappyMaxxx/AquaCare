@@ -1,0 +1,231 @@
+{% extends 'aquarium_care/base.html' %}
+{% load static %}
+{% block body %}
+    <body style="overflow-y: hidden;">
+{% endblock body %}
+{% block content %}
+<div class="header">
+    <a href=" {% url 'index' %} ">
+        <img src=" {% static 'aquarium_care/img/logo.png' %} " alt="">
+    </a>
+</div>
+<img class="aquarium" src="{% static 'aquarium_care/img/aquarium.png' %}" alt="">
+
+<div class="job">
+    <div class="food">
+        <a id="click" href="#"><img src="{% static 'aquarium_care/img/food.png' %} " alt=""></a>
+    </div>
+    <div class="sponge">
+        <a href="#"><img src=" {% static 'aquarium_care/img/sponge.png' %} " alt=""></a>
+    </div>
+</div>
+<div class="hidden" id="window">
+    <div class="food1" id="photo1">
+        <button value="photo1" name="shrimp_feed" type="submit"><img src="{% static 'aquarium_care/img/photo1-removebg-preview.png' %}" alt=""></button>
+    </div>
+    <div class="food1" id="photo2">
+        <button value="photo2" name="fish_feed" type="submit"><img src="{% static 'aquarium_care/img/photo2-removebg-preview.png' %}" alt=""></button>
+    </div>
+    <div class="food1" id="photo3">
+        <form method="post">
+            <button value="photo3" name="snail_feed" type="submit" ><img src="{% static 'aquarium_care/img/photo3-removebg-preview.png' %}" alt=""></button>
+        </form>
+    </div>
+</div>
+
+<div class="all">
+    <div class="info">
+    <div class="cabinet">
+        <a href=" {% url 'statistic' statistic_id=aquarium.id %}"><img src="{% static 'aquarium_care/img/fish2.png' %}" alt=""></a>
+    </div>
+        <div class="cabinet">
+            <a href=" {% url 'message' message_id=aquarium.id %} "><img src="{% static 'aquarium_care/img/Group10.png' %} " alt=""></a>
+        </div>
+    </div>
+    <div class="cabinet">
+        <a href=" {% url 'profile' profile_id=aquarium.id %} "><img style="width: 50px;" src="{% static 'aquarium_care/img/people.png' %}" alt=""></a>
+    </div>
+</div>
+<script>
+   function fetchDataAndUpdateText() {
+        fetch('fishes/')
+        .then(response => response.json())
+        .then(data => {
+            var fishes = data.fishes;
+            var shrimps = data.shrimps;
+            var snails = data.snails;
+            var fugues = data.fugues;
+            console.log('fishes')
+            fishes.forEach(fish => {
+                console.log(fish);
+            });
+            console.log('shrimps')
+            shrimps.forEach(shrimp => {
+                console.log(shrimp);
+            });
+            console.log('snails')
+            snails.forEach(snail => {
+                console.log(snail);
+            });
+            console.log('fugues')
+            fugues.forEach(fugue => {
+                console.log(fugue);
+            });
+        })
+        .catch(error => console.error('Помилка:', error));
+    }
+    setInterval(fetchDataAndUpdateText, 5000);
+
+    const link = document.getElementById('click');
+    const windowDiv = document.getElementById('window');
+
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        
+        if (windowDiv.classList.contains('hidden')) {
+            windowDiv.classList.remove('hidden');
+        } else {
+            windowDiv.classList.add('hidden');
+        }
+    });
+    document.querySelectorAll('.food1').forEach(item => {
+item.addEventListener('click', event => {
+    event.preventDefault();
+
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('popup'); // Додаємо клас для стилізації
+    newDiv.style.position = 'fixed'; // Зміна позиції зі статичної на фіксовану
+    newDiv.style.bottom = '5px'; // Початкова позиція - зверху
+    newDiv.style.left = '5px'; // Початкова позиція - зліва
+    newDiv.style.width = '250px';
+    newDiv.style.height = '100px';
+    newDiv.style.borderRadius = '25px';
+    newDiv.style.backgroundColor = 'green';
+    newDiv.style.display = 'flex'; // Додаємо стиль display: flex;
+    newDiv.style.alignItems = 'center'; // Додаємо стиль align-items: center;
+
+    const paragraph = document.createElement('p');
+    paragraph.textContent = 'Ви покормили рибок!';
+    paragraph.style.color = 'white'; // Встановлюємо білий колір тексту
+    paragraph.style.marginLeft = '25px'; // Встановлюємо justify-content: center
+
+    newDiv.appendChild(paragraph); // Додаємо <p> у <div>
+
+    document.body.appendChild(newDiv);
+
+    
+
+    setTimeout(function() {
+        document.body.removeChild(newDiv);
+    }, 3000);
+});
+
+});
+    
+document.getElementById('photo1').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    fetch('/your-endpoint', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ buttonClicked: 'photo1' })
+    }).then(response => {
+        if (response.ok) {
+            console.log('POST request sent successfully.');
+        } else {
+            console.error('Failed to send POST request.');
+        }
+    }).catch(error => {
+        console.error('Error:', error);
+    });
+});
+    document.getElementById('photo2').addEventListener('click', function(event) {
+event.preventDefault();
+
+// Встановлення затримки на 2 секунди (2000 мілісекунд)
+setTimeout(function() {
+    // Оновлення сторінки
+    location.reload();
+}, 2000);
+});
+    document.getElementById('photo3').addEventListener('click', function(event) {
+event.preventDefault();
+
+// Встановлення затримки на 2 секунди (2000 мілісекунд)
+setTimeout(function() {
+    // Оновлення сторінки
+    location.reload();
+}, 2000);
+});
+    document.querySelectorAll('.sponge').forEach(item => {
+item.addEventListener('click', event => {
+    event.preventDefault();
+
+    const newDiv = document.createElement('div');
+    newDiv.classList.add('popup'); // Додаємо клас для стилізації
+    newDiv.style.position = 'fixed'; // Зміна позиції зі статичної на фіксовану
+    newDiv.style.bottom = '5px'; // Початкова позиція - зверху
+    newDiv.style.left = '5px'; // Початкова позиція - зліва
+    newDiv.style.width = '250px';
+    newDiv.style.height = '100px';
+    newDiv.style.borderRadius = '25px';
+    newDiv.style.backgroundColor = 'green';
+    newDiv.style.display = 'flex'; // Додаємо стиль display: flex;
+    newDiv.style.alignItems = 'center'; // Додаємо стиль align-items: center;
+
+    const paragraph = document.createElement('p');
+    paragraph.textContent = 'Ви помили акваріум!';
+    paragraph.style.color = 'white'; // Встановлюємо білий колір тексту
+    paragraph.style.marginLeft = '50px'; // Встановлюємо justify-content: center
+
+    newDiv.appendChild(paragraph); // Додаємо <p> у <div>
+
+    document.body.appendChild(newDiv);
+
+    
+
+    setTimeout(function() {
+        document.body.removeChild(newDiv);
+    }, 3000);
+});
+
+});
+    document.querySelectorAll('.sponge').forEach(item => {
+        item.addEventListener('click', event => {
+            event.preventDefault();
+// Встановлення затримки на 5 секунд (5000 мілісекунд)
+setTimeout(function() {
+    // Оновлення сторінки
+    location.reload();
+}, 2000); // 5000 мілісекунд = 5 секунд
+});
+});
+
+
+// Функція для відправлення запиту на сервер і оновлення тексту
+function fetchDataAndUpdateText() {
+    fetch('/fishes/') // URL, на який відправляється запит
+        .then(response => response.json()) // Парсинг відповіді у форматі JSON
+        .then(data => {
+            var messageElement = document.getElementById('message');
+            // Оновлення тексту залежно від отриманих даних
+            if (data.hasOwnProperty('fish_count')) {
+                var fishCount = data.fish_count;
+                if (fishCount > 3) {
+                    messageElement.textContent = "Збільшились: " + fishCount;
+                } else {
+                    messageElement.textContent = "Кількість об'єктів: " + fishCount;
+                }
+            } else {
+                messageElement.textContent = "Дані про риб не були отримані";
+            }
+        })
+        .catch(error => console.error('Помилка:', error)); // Обробка помилок
+}
+
+// Виклик функції fetchDataAndUpdateText кожні 5 секунд
+setInterval(fetchDataAndUpdateText, 5000);
+</script>
+{% endblock content %}

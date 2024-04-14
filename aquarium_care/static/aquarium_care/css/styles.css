@@ -1,0 +1,594 @@
+/* ALL */
+html, body, div, span, * {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    border: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #E2F6FF;
+}
+a{
+    text-decoration: none;
+    color: #000000;
+}
+.body{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 25px 0;
+}
+
+/* HEADER */
+.header{
+    background-color:rgba(129, 190, 206, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+}
+
+
+
+
+/* index */
+.main{
+    width: 1208px;
+    height: 700px;
+    border-radius: 35px;
+    background-color: #74B0CC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+    width: 1202px;
+    height: 630px;
+    border-radius: 35px;
+    background-color: #C0E4F5;
+    text-align: center;
+    margin: 0 15px;
+    display: grid;
+    justify-items: center;
+}
+.text{
+    font-size: 58px;
+    color: #254C5D;
+    font-family: "Yeseva One", serif;
+    margin: 30px 15px;
+    letter-spacing: 2px;
+
+}
+.text span{
+    color: #041821; 
+    background: -webkit-linear-gradient(to right, #041821, #0195D9); 
+    background: linear-gradient(to right, #041821, #0195D9); 
+    -webkit-text-fill-color: transparent;
+}
+.content p {
+    font-size: 36px;
+    color: #39476B;
+    letter-spacing: 2px;
+}
+
+/* static */
+/* reg */
+.wave{
+    position: fixed;
+    bottom: -90px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.wrapper{
+   width: 100%;
+   height: 100%;
+}
+.regsiter{
+     width: 456px;
+    height: 596px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #74B0CC;
+    border-radius: 50px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 427px;
+    height: 555px;
+    background-color: #C0E4F5;
+    border-radius: 50px;
+}
+
+.center h1 {
+    margin-top: 25%;
+    font-size: 40px;
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+    font-family: "Yeseva One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.center form {
+padding: 0 40px;
+box-sizing: border-box;
+}
+
+form .txt_field {
+position: relative;
+border-bottom: 2px solid #adadad;
+margin: 15px 0;
+}
+
+.txt_field input {
+width: 100%;
+padding: 0 5px;
+height: 40px;
+font-size: 16px;
+border: none;
+background: none;
+outline: none;
+}
+
+.txt_field label {
+position: absolute;
+top: 50%;
+left: 5px;
+color: #adadad;
+transform: translateY(-20%);
+font-size: 24px;
+pointer-events: none;
+transition: 0.3s;
+font-family: "Anonymous Pro", monospace;
+font-weight: 400;
+font-style: normal;
+}
+
+.txt_field span::before {
+content: "";
+position: absolute;
+top: 40px;
+left: 0;
+width: 0%;
+height: 2px;
+background: #2691d9;
+
+transition: 0.3s;
+}
+
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label {
+top: -5px;
+color: #2691d9;
+}
+
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before {
+width: 100%;
+}
+
+.button {
+width: 100%;
+height: 50px;
+background: #72A5BC;
+font-size: 24px;
+border-radius: 25px;
+font-family: "Yeseva One", serif;
+font-weight: 700;
+color: #000000;
+outline: none;
+cursor: pointer;
+}
+.inline {
+    width: 430px;
+    height: 100px;
+    border-radius: 50px;
+    font-size: 35px;
+}
+.button:hover {
+border-color: #4f707e;
+transition: 0.5s;
+}
+.signup_link {
+margin: 30px 0;
+text-align: center;
+font-size: 15px;
+font-family: "Anonymous Pro", monospace;
+font-weight: 400;
+font-style: normal;
+color: #000000;
+}
+
+.signup_link button {
+color: #2691d9;
+text-decoration: none;
+font-size: 15px;
+font-family: "Anonymous Pro", monospace;
+font-weight: 700;
+font-style: normal;
+color: #000000;
+margin-left: 5px;
+}
+
+.signup_link a:hover {
+text-decoration: underline;
+}
+.error {
+    color: red;
+    font-size: 20px;
+    font-family: "Anonymous Pro", monospace;
+    font-weight: 400;
+    font-style: normal;
+    margin: 10px 0;
+}
+
+.fishes{
+    width: 100%;
+    display: flex;
+    height: 320px;
+    justify-content: space-evenly;
+}
+.card{
+    width: 215px;
+    height: 320px;
+}
+.card input{
+    width: 100px;
+    height: 62px;
+    background-color: #7D9AA8;
+    border-radius: 20px;
+    padding: 5px 20px;
+    outline:none;
+    font-size: 45px;
+    text-align: center;
+    margin: 15px 0;
+}
+.view{
+    width: 218px;
+    height: 218px;
+    border-radius: 25px;
+    background-color: #94BCCF;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.createAqurium{
+    width: 315px;
+    height: 100px;
+    border-radius: 20px;
+    background-color: #8BC3DD;
+    color: #254C5D;
+    font-size: 48px;
+    cursor: pointer;
+}
+.creation{
+    margin-top: 25px;
+    width: 780px;
+    height: 100px;
+    background-color: #8BC3DD;
+    border-radius: 20px;
+    font-size: 48px;
+    color: #254C5D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Створити Акваріум */
+.fishes{
+    width: 100%;
+    display: flex;
+    height: 320px;
+    justify-content: space-evenly;
+}
+.card{
+    width: 215px;
+    height: 320px;
+}
+.card input{
+    width: 100px;
+    height: 62px;
+    background-color: #7D9AA8;
+    border-radius: 20px;
+    padding: 5px 20px;
+    outline:none;
+    font-size: 45px;
+    text-align: center;
+    margin: 15px 0;
+}
+.pin{
+    width: 100px;
+    height: 40px;
+    background-color: #7D9AA8;
+    border-radius: 20px;
+    padding: 5px 20px;
+    outline:none;
+    font-size: 25px;
+    text-align: center;
+    margin: 10px 0;
+}
+.view{
+    width: 218px;
+    height: 218px;
+    border-radius: 25px;
+    background-color: #94BCCF;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.createAqurium{
+    width: 315px;
+    height: 100px;
+    border-radius: 20px;
+    background-color: #8BC3DD;
+    color: #254C5D;
+    font-size: 48px;
+    cursor: pointer;
+}
+.creation{
+    margin-top: 25px;
+    width: 780px;
+    height: 100px;
+    background-color: #8BC3DD;
+    border-radius: 20px;
+    font-size: 48px;
+    font-family: "Yeseva One", serif;
+    color: #254C5D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* aquarium */
+
+.aquarium{
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+    width: 1050px;
+}
+.job {
+    width: 300px;
+    height: 90px;
+    border-radius: 30px;
+    background-color: rgba(167, 237, 255, 0.93);
+    margin: 40px -20px 20px -20px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+.food{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #94DDFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    margin: 0 30px;
+}
+.sponge{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #94DDFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    margin: 0 30px;
+}
+
+.hidden {
+  display: none;
+
+}
+#visible{
+    display: block;
+}
+.food1{
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: rgb(148, 221, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    margin: 20px 42px;
+}
+.food1 img{
+    cursor: pointer;
+    margin: -5px 0 ;
+}
+
+.all{
+    width: 200px;
+    height: 100%;
+    position: absolute;
+    right: 10px;
+    top: 110px;
+}
+.info{
+    width: 100%;
+    height: 60%;
+}
+.cabinet{
+    width: 88px;
+    height: 88px;
+    border-radius: 20px;
+    background-color: rgba(132, 194, 221, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.notification{
+    width: 1100px;
+    height: 100px;
+    border-radius: 25px;
+    background-color: #84B8D1;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fishs2{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.card p{
+    width: 180px;
+    height: 62px;
+    background-color: #7D9AA8;
+    border-radius: 20px;
+    padding: 5px 20px;
+    outline:none;
+    font-size: 45px;
+    text-align: center;
+    margin: 15px 0;
+}
+.robot{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inf {
+    width: 700px;
+    height: 600px;
+    margin-top: 27px;
+    text-align: center;
+    border-radius: 25px;
+    border: 2px solid #76cfff;
+    background-color: #C6EBFF;
+}
+.inf p{
+    margin: 35px 15px;
+    font-size: 24px;
+    font-family: "Yeseva One", serif;
+}
+.main1{
+    width: 1208px;
+    height: 100%;
+    border-radius: 35px;
+    background-color: #74B0CC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content1{
+    width: 1202px;
+    height: 100%;
+    border-radius: 35px;
+    background-color: #C0E4F5;
+    text-align: center;
+    margin: 15px 15px;
+    display: grid;
+    justify-items: center;
+}
+.noti{
+    width: 1100px;
+    height: 100px;
+    border-radius: 25px;
+    background-color: #84B8D1;
+    font-size: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px 0;
+}
+.noti img{
+    width: 66px;
+}
+.first, .second{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 30px;
+}
+.first  div,.second div{
+    margin: 0 30px;
+}
+.second button {
+    cursor: pointer;
+    width: 200px;
+    height: 70px;
+    border-radius: 20px;
+    background-color: rgb(6, 180, 6);
+}
+.inf a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #8BC3DD;
+    margin-left: 35%;
+    font-size: 24px;
+}
+
+.gavno1{
+    width: 35px;
+    position: absolute;
+    top: 460px;
+    left: 450px;
+}
+.gavno2{
+    width: 35px;
+    position: absolute;
+    top: 400px;
+    left: 450px;
+}
+.gavno3{
+    width: 35px;
+    position: absolute;
+    top: 300px;
+    left: 450px;
+}
+.lives{
+    width: 100%; /* Full width */
+    background-color: #ddd; /* Grey background */  
+}
+.skills {
+    text-align: right; /* Right-align text */
+    padding-right: 20px; /* Add some right padding */
+    line-height: 40px; /* Set the line-height to center the text inside the skill bar, and to expand the height of the container */
+    color: white; /* White text color */
+    width: 90%; 
+    background-color: #4CAF50;
+}

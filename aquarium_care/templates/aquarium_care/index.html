@@ -1,0 +1,19 @@
+{% extends 'aquarium_care/base.html' %}
+{% load static %}
+{% block content %}
+<div class="header">
+    <a href=" {% url 'index' %} ">
+        <img src=" {% static 'aquarium_care/img/logo.png' %} " alt="">
+    </a>
+</div>
+<div class="body">
+    <div class="main">
+        <div class="content">
+            <h1 class="text">Твій перший ВЛАСНИЙ акваріум </h1>
+            <p>Створи віртуальний акваріум для своєї дитини та відслідковуй її успіхи </p>
+            <button class="button inline" type="submit" value="Зареєструватися"><a href=" {% url 'create_aquarium' %} ">Створити акваріум</a></button>
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

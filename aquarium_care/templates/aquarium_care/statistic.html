@@ -1,0 +1,83 @@
+{% extends 'aquarium_care/base.html' %}
+{% load static %}
+{% block content %}
+<div class="header">
+    <a href=" {% url 'index' %} ">
+        <img src=" {% static 'aquarium_care/img/logo.png' %} " alt="">
+    </a>
+</div>
+<div class="body">
+    <div  class="main1">
+        <div class="content1">
+            <div class="creation">Особистий кабінет | Баланс: {{balance}} </div>
+            {% for fugue in fugues %}
+            <div class="noti">
+                <div class="first">
+                    <img src=" {% static 'aquarium_care\img\fugue.png' %} " alt=""> 
+                    <div class="id">Номер: {{fugue.id}}</div>
+                    <div class="id">Ситість: {{fugue.satiety}}</div>
+                </div>
+                <div class="second">
+                    <div class="price">{{fugue.cost}}</div>
+                    {% if fugue.satiety > 90 %}
+                    <form action="{% url 'sell_fugue' fugue_id=fugue.id %}" method="post">{% csrf_token %}<button type="submit">Продати</button></form>
+                    {% endif %}
+                </div>
+            </div>          
+            {% endfor %}
+            {% for snail in snails %}
+            <div class="noti">
+                <div class="first">
+                    <img src=" {% static 'aquarium_care\img\snail.png' %} " alt=""> 
+                    <div class="id">Номер: {{snail.id}}</div>
+                    <div class="id">Ситість: {{snail.satiety}}</div>
+                </div>
+                <div class="second">
+                    <div class="price">{{snail.cost}}</div>
+                    {% if snail.satiety > 90 %}
+                    <form action="{% url 'sell_snail' snail_id=snail.id %}" method="post">{% csrf_token %}<button type="submit">Продати</button></form>
+                    {% endif %}
+                </div>
+            </div>          
+            {% endfor %}
+            {% for fish in fishes %}
+            {% if not fish.is_sold %}
+            <div class="noti">
+                <div class="first">
+                    <img src=" {% static 'aquarium_care\img\rainbow.png' %} " alt=""> 
+                    <div class="id">Номер: {{fish.id}}</div>
+                    <div class="id">Ситість: {{fish.satiety}}</div>
+                </div>
+                <div class="second">
+                    <div class="price">{{fish.cost}}</div>
+                    {% if fish.satiety > 90 %}
+                        <form action="{% url 'sell_fish' fish_id=fish.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit">Продати</button>
+                        </form>
+                    {% endif %}
+                </div>
+            </div>              
+            {% endif %}
+            {% endfor %}
+            {% for shrimp in shrimps %}
+            <div class="noti">
+                <div class="first">
+                    <img src=" {% static 'aquarium_care\img\shrimp.png' %} " alt=""> 
+                    <div class="id">Номер: {{shrimp.id}}</div>
+                    <div class="id">Ситість: {{shrimp.satiety}}</div>
+                </div>
+                <div class="second">
+                    <div class="price">{{shrimp.cost}}</div>
+                    {% if shrimp.satiety > 90 %}
+                    <form action="{% url 'sell_shrimp' shrimp_id=shrimp.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Продати</button><form>
+                    {% endif %}
+                </div>
+            </div>          
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
